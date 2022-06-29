@@ -1,13 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const articleCtrl = require('../controller/article')
 
 // 获取文章列表
-router.get('/', async (req, res, next) => {
-  try {
-    res.send('post /articles')
-  } catch (err) {
-    next(err)
-  }
-})
+router.get('/', articleCtrl.fetchActicles)
 
 module.exports = router
