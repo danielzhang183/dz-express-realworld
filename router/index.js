@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.send('Hello World')
-})
+router.use(require('./user'))
+router.use('profiles', require('./profile'))
+router.use('articles', require('./article'))
+router.use('tags', require('./tag'))
 
 module.exports = router
