@@ -1,5 +1,6 @@
 exports.login = async (req, res, next) => {
   try {
+    JSON.parse('asjdhfas')
     res.send('post /users/login')
   } catch (err) {
     next(err)
