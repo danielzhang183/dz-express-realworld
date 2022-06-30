@@ -13,3 +13,7 @@ db.on('error', (err) => {
 db.on('open', () => {
   console.log('MongoDB connect success')
 })
+
+module.exports = {
+  User: mongoose.model('User', require('./user')),
+}

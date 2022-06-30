@@ -1,3 +1,5 @@
+const { User } = require('../model')
+
 exports.login = async (req, res, next) => {
   try {
     JSON.parse('asjdhfas')
@@ -9,7 +11,9 @@ exports.login = async (req, res, next) => {
 
 exports.register = async (req, res, next) => {
   try {
-    res.send('post /users')
+    const user = new User(req.body.user)
+    await user.save()
+    res.status(201).json({ user })
   } catch (err) {
     next(err)
   }
