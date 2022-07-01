@@ -11,8 +11,10 @@ exports.login = async (req, res, next) => {
 
 exports.register = async (req, res, next) => {
   try {
-    const user = new User(req.body.user)
+    let user = new User(req.body.user)
     await user.save()
+    user = user.toJSON()
+    delete user.password
     res.status(201).json({ user })
   } catch (err) {
     next(err)
