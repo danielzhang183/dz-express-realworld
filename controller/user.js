@@ -8,7 +8,7 @@ exports.login = async (req, res, next) => {
     const token = await jwt.sign(
       { userId: user._id },
       jwtSecret,
-      { expiresIn: 15000 }
+      // { expiresIn: 15000 }
     )
     res.status(200).json({ ...user, token })
   } catch (err) {
