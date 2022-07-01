@@ -4,7 +4,7 @@ const userCtrl = require('../controller/user')
 const userValidator = require('../validator/user')
 
 // 登录
-router.post('/users/login', userCtrl.login)
+router.post('/users/login', userValidator.login, userCtrl.login)
 
 // 注册
 router.post('/users', userValidator.register, userCtrl.register)
