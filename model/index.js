@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { dbUri } = require('../config/config.default')
 
 mongoose.connect(dbUri, {
-  useMongoClient: true,
+  useNewUrlParser: true,
   useUnifiedTopology: true
 })
 
