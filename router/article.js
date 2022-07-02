@@ -11,16 +11,16 @@ router.get('/', articleCtrl.fetchArticles)
 router.get('/feed', articleCtrl.fetchFeedArticles)
 
 // 获取文章
-router.get('/:slug', articleCtrl.fetchArticle)
+router.get('/:slug', articleValidator.fetchArticle, articleCtrl.fetchArticle)
 
 // 创建文章
-router.post('/', auth, articleValidator.createArticle,articleCtrl.createArticle)
+router.post('/', auth, articleValidator.createArticle, articleCtrl.createArticle)
 
 // 更新文章
-router.put('/:slug', articleCtrl.updateArticle)
+router.put('/:slug', auth, articleValidator.updateArticle, articleCtrl.updateArticle)
 
 // 删除文章
-router.delete('/:slug', articleCtrl.deleteArticle)
+router.delete('/:slug', auth, articleValidator.deleteArticle, articleCtrl.deleteArticle)
 
 // 添加文章评论
 router.post('/:slug/comments', articleCtrl.createArticleComment)

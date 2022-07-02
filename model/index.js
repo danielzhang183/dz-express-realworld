@@ -16,4 +16,5 @@ db.on('open', () => {
 
 module.exports = {
   User: mongoose.model('User', require('./user')),
+  Article: mongoose.model('Article', require('./article'))
 }
